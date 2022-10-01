@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .fp{
+            width: 100%;
+            height: 100vh;
+            background-image: linear-gradient(25deg,rgb(94, 130, 22),rgb(124, 175, 23),rgb(92, 129, 20));
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+        }
+        #txt{
+            font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+            text-transform: uppercase;
+            font-size: 60px;
+            position: relative;
+            z-index: 100;
+        }
+        #type{
+            font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+            font-size: 60px;
+            text-transform: capitalize;
+            width: fit-content;
+            border-right: 1px solid white;
+            animation: type .4s linear alternate infinite;
+        }
+        @keyframes type{
+            to{
+            border-right: 1px solid rgba(255, 255, 255, 0);
+
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="fp">
+        <h1 id="txt">hello i am: </h1>
+        <span id="type"></span>
+    </div>
+</body>
+<script>
+    let inter= setInterval(_type,200)
+    let niss= setInterval(_merge,200)
+    let x =' vahik yesaian'
+    let y = 'frontend developer'
+    let i=1
+    let v
+    
+
+    function _type(){
+        if(i<=x.length){
+            document.getElementById('type').innerHTML=x.substring(0,i)
+            i++
+            v=i
+        }else{
+            v--
+            document.getElementById('type').innerHTML=x.substring(0,v)
+            if(v==0){
+                clearInterval(inter)
+            }
+        }
+    }
+    function _merge(){
+        if(i<=y.length){
+            setTimeout(() => {
+                document.getElementById('type').innerHTML=y.substring(0,i)
+            }, 7000);
+            i++
+            v=i
+        }else{
+            v--
+            document.getElementById('type').innerHTML=y.substring(0,v)
+            if(v==0){
+                clearInterval(niss)
+            }
+        }
+    }
+   
+</script>
+</html>
